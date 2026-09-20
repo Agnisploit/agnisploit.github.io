@@ -18,3 +18,42 @@
 .person-photo::after {
     z-index: 2;
 }
+/* TEAM PHOTO FIX */
+.person-photo {
+    position: relative;
+    height: 320px;
+    min-height: 320px;
+    overflow: hidden;
+}
+
+.person-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+}
+
+.person-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+        135deg,
+        rgba(255,60,10,.18),
+        transparent 55%,
+        rgba(90,0,255,.12)
+    );
+    pointer-events: none;
+}
+
+@media (max-width: 650px) {
+    .person-photo {
+        height: 270px;
+        min-height: 270px;
+    }
+}
